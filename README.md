@@ -18,7 +18,7 @@ Develop a modern and organized data warehouse using PostgreSQL to bring together
 
 ## ETL Workflow Overview
 1. **Data Ingestion**  
-   Import raw data from `crm_data.csv` and `erp_data.csv` into Bronze layer (staging tables).
+   Import raw data from CRM and ERP Datasets into Bronze layer (staging tables).
 2. **Data Transformation**  
    Clean and standardize data in Silver layer, merge sources, apply business logic.
 3. **Data Modeling**  
@@ -26,9 +26,9 @@ Develop a modern and organized data warehouse using PostgreSQL to bring together
    - `fact_sales`
    - `dim_customers`
    - `dim_products`
-4. **Data Loading**  
+5. **Data Loading**  
    Populate the Gold layer tables with fully transformed data.
-5. **Analysis & Reporting**  
+6. **Analysis & Reporting**  
    Run analytical SQL queries to uncover trends and support decision-making.(Not part of this project)
 
 ## Data Architecture
@@ -53,9 +53,15 @@ Data lineage in the Medallion Architecture, showing how raw data from CRM and ER
 ![data_flow](docs/visuals/data_flow.jpg)
 
 ## Data Integration
-This project integrates raw data from two different business domains:
-- **CRM**: Customer relationship data like customers info, transactional records about sales & orders, and product info
-- **ERP**: Sales transactions, customer's extra info, product info etc.
+This project integrates raw data from two different business domains (Each contains three distinct .csv files):
+1. **CRM**: Customer relationship data like customers info, transactional records about sales & orders, and product info.  
+   - `cust_info.csv`
+   - `prd_info.csv`
+   - `sales_details.csv`
+2. **ERP**: Sales transactions, customer's extra info, product info etc.
+   - `CUST_AZ12.csv`
+   - `LOC_A101.csv`
+   - `PX_CAT_G1V2.csv`
 ![data_integration](docs/visuals/data_integration.jpg)
 
 ## Data Modeling — Star Schema
