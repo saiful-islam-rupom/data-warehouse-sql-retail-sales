@@ -1,4 +1,4 @@
-![poster](docs/data_architecture.png)
+![poster](poster.png)
 # Developing a Data Warehouse using PostgreSQL: An End-to-End Retail Sales Data Pipeline
 
 ## Project Overview
@@ -34,8 +34,8 @@ Develop a modern and organized data warehouse using PostgreSQL to bring together
 ## Data Architecture
 This project follows the **Medallion Architecture** approach.
 A high-level architectural overview showing the flow of data across layers and components from source ingestion to analytics-ready output.
-![data_architecture](docs/data_architecture.png)
-![data_layers](docs/data_architecture.png)
+![data_architecture](docs/visuals/data_architecture.png)
+![data_layers](docs/visuals/data_layers.png)
 1. **Bronze Layer (Raw Stage)**
    - Loads raw CRM and ERP data into staging tables.
    - No transformations applied yet.
@@ -50,13 +50,13 @@ A high-level architectural overview showing the flow of data across layers and c
 
 ## Data Flow
 Data lineage in the Medallion Architecture, showing how raw data from CRM and ERP sources flows through Bronze (raw), Silver (cleaned), and Gold (business-ready) layers. Each layer progressively transforms and integrates the data into structured tables used for analytics and reporting.
-![data_flow](docs/data_architecture.png)
+![data_flow](docs/visuals/data_flow.jpg)
 
 ## Data Integration
 This project integrates raw data from two different business domains:
 - **CRM**: Customer relationship data like customers info, transactional records about sales & orders, and product info
 - **ERP**: Sales transactions, customer's extra info, product info etc.
-![data_integration](docs/data_architecture.png)
+![data_integration](docs/visuals/data_integration.jpg)
 
 ## Data Modeling — Star Schema
 A **star schema** was designed consisting of:
@@ -65,21 +65,21 @@ A **star schema** was designed consisting of:
 - Supporting two **Dimension Tables**:  
   - `dim_customers`  
   - `dim_products`  
-![data_model](docs/data_architecture.png)
+![data_model](docs/visuals/data_model.jpg)
 
 ## Gold Layer Table Snapshots
 The Gold Layer is the business-level data representation, well-suited for analytical and reporting use cases. It consists of **dimension tables** and **fact tables** for specific business metrics.
 ### `gold.dim_customers`  
 Contains enriched customer information including unique customer IDs, names, regions, and customer types, used for customer-based analysis.  
-![gold.dim_customers](docs/data_architecture.png)
+![gold.dim_customers](docs/visuals/gold.dim_customers.png)
 
 ### `gold.dim_products`  
 Holds detailed product data such as product names, categories, and prices to support product-level performance reporting.  
-![gold.dim_products](docs/data_architecture.png)
+![gold.dim_products](docs/visuals/gold.dim_products.png)
 
 ### `gold.fact_sales`  
 Captures transactional sales records linked to customers and products, with measures like quantity sold, total sales value, and sales dates.  
-![gold.fact_sales](docs/data_architecture.png)
+![gold.fact_sales](docs/visuals/gold.fact_sales.png)
 
 ## Features
 - **End-to-End Data Pipeline**: Covers the complete lifecycle from raw data ingestion to creating structured, analysis-ready data.
