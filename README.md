@@ -70,7 +70,7 @@ A **star schema** was designed consisting of:
 ## Gold Layer Table Snapshots
 The Gold Layer is the business-level data representation, well-suited for analytical and reporting use cases. It consists of **dimension tables** and **fact tables** for specific business metrics.
 ### `gold.dim_customers`  
-Contains enriched customer information including unique customer IDs, names, regions, and customer types, used for customer-based analysis.  
+Contains enriched customer information including unique customer IDs, names, and regions used for customer-based analysis.  
 ![gold.dim_customers](docs/visuals/gold.dim_customers.png)
 
 ### `gold.dim_products`  
